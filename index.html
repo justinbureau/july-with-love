@@ -6,17 +6,20 @@
   <title>July with Love</title>
   <link rel="stylesheet" href="style.css">
   <meta name="description" content="July with Love — July 2026">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Custom Cursor -->
-  <div class="cursor"></div>
+  <!-- Cursors -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
 
   <!-- ─── Hero ─── -->
   <section class="hero">
-    <div class="hero-bg"></div>
     <div class="hero-content">
-      <p class="hero-overline">July 2026</p>
+      <p class="hero-overline">July Two Thousand &amp; Twenty Six</p>
       <h1 class="hero-title"><em>July</em> with Love</h1>
       <p class="hero-date">Paris &ensp;&middot;&ensp; Marseille</p>
     </div>
@@ -29,7 +32,7 @@
   <!-- ─── Intro ─── -->
   <section class="intro">
     <div class="intro-inner">
-      <p class="intro-text">
+      <p class="intro-text reveal">
         Two weekends.<br>
         Two cities.<br>
         One <em>celebration</em>.
@@ -40,259 +43,410 @@
   <!-- ─── Weekends ─── -->
   <section class="weekends">
 
-    <!-- Tab Navigation -->
-    <nav class="tab-nav">
-      <button class="tab-btn active" data-tab="paris">Paris &ensp;&middot;&ensp; July 3–5</button>
-      <button class="tab-btn" data-tab="marseille">Marseille &ensp;&middot;&ensp; July 10–15</button>
+    <nav class="tab-nav" id="tabNav">
+      <button class="tab-btn active" data-tab="paris">Paris &ensp;&middot;&ensp; July 3 – 5</button>
+      <button class="tab-btn" data-tab="marseille">Marseille &ensp;&middot;&ensp; July 10 – 15</button>
     </nav>
 
     <div class="tab-panels">
 
-      <!-- ═══════════════════════════════════ -->
-      <!-- PARIS WEEKEND                       -->
-      <!-- ═══════════════════════════════════ -->
-      <div class="tab-panel paris active" id="paris">
+      <!-- ══════════════════════════════════════ -->
+      <!--  PARIS                                 -->
+      <!-- ══════════════════════════════════════ -->
+      <div class="tab-panel panel-paris active" id="paris">
 
-        <!-- Paris Hero -->
-        <div class="weekend-hero">
-          <h2 class="weekend-hero-title"><em>Paris</em></h2>
-          <p class="weekend-hero-subtitle">Hôtel de Crillon &ensp;&middot;&ensp; July 3 – 5, 2026</p>
+        <div class="visual-hero" style="background-image: url('https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1920&q=80')">
+          <h2 class="visual-hero-title reveal"><em>Paris</em></h2>
+          <p class="visual-hero-sub reveal">Hôtel de Crillon &ensp;&middot;&ensp; July 3 – 5, 2026</p>
         </div>
 
-        <!-- Statement -->
-        <div class="statement">
-          <p class="statement-text">
+        <div class="statement theme-light">
+          <p class="statement-text reveal">
             A weekend at the <em>Crillon</em>,<br>
-            where every moment is a&nbsp;ceremony
+            where every moment<br>
+            is a ceremony
           </p>
         </div>
 
-        <!-- Friday -->
-        <div class="day-section">
+        <!-- Friday July 3 -->
+        <div class="day-section theme-light">
           <div class="day-header">
-            <p class="day-label">Friday</p>
-            <h3 class="day-name">July <em>3</em></h3>
+            <p class="day-label reveal">Friday</p>
+            <h3 class="day-name reveal">July <em>3</em></h3>
           </div>
           <div class="events">
-            <div class="event-card">
-              <p class="event-time">Evening</p>
-              <h4 class="event-name"><em>Welcome</em> Drinks</h4>
-              <p class="event-venue">Le Bar du Crillon</p>
-              <p class="event-detail">An intimate first evening together in one of Paris's most storied bars.</p>
+            <div class="event-card reveal" data-expandable>
+              <div class="event-summary">
+                <div class="event-summary-text">
+                  <p class="event-time">Evening</p>
+                  <h4 class="event-name"><em>Welcome</em> Drinks</h4>
+                </div>
+                <span class="expand-icon">+</span>
+              </div>
+              <div class="event-reveal">
+                <div class="event-reveal-inner">
+                  <p class="event-venue">Le Bar du Crillon</p>
+                  <p class="event-detail">The evening begins at one of Paris's most storied bars. Champagne, cocktails, and the company of those we love most. Come as you are — or come as who you want to be tonight.</p>
+                  <p class="event-info">From 8:00 PM &ensp;&middot;&ensp; Cocktail attire</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="divider"><div class="divider-line"></div></div>
+        <div class="visual-break" style="background-image: url('https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=1920&q=80')"></div>
 
-        <!-- Saturday -->
-        <div class="day-section">
+        <!-- Saturday July 4 -->
+        <div class="day-section theme-light">
           <div class="day-header">
-            <p class="day-label">Saturday</p>
-            <h3 class="day-name">July <em>4</em></h3>
+            <p class="day-label reveal">Saturday</p>
+            <h3 class="day-name reveal">July <em>4</em></h3>
           </div>
           <div class="events">
-            <div class="event-card">
-              <p class="event-time">Afternoon</p>
-              <h4 class="event-name">The <em>Ceremony</em></h4>
-              <p class="event-venue">Townhouse</p>
+            <div class="event-card reveal" data-expandable>
+              <div class="event-summary">
+                <div class="event-summary-text">
+                  <p class="event-time">Afternoon</p>
+                  <h4 class="event-name">The <em>Ceremony</em></h4>
+                </div>
+                <span class="expand-icon">+</span>
+              </div>
+              <div class="event-reveal">
+                <div class="event-reveal-inner">
+                  <p class="event-venue">Townhouse</p>
+                  <p class="event-detail">An intimate ceremony surrounded by those we love most. A moment we've dreamed of — now shared with you.</p>
+                  <p class="event-info">3:00 PM</p>
+                </div>
+              </div>
             </div>
-            <div class="event-card">
-              <p class="event-time">Late Afternoon</p>
-              <h4 class="event-name"><em>Garden</em> Party</h4>
-              <p class="event-venue">Celebration drinks in the garden</p>
+            <div class="event-card reveal" data-expandable>
+              <div class="event-summary">
+                <div class="event-summary-text">
+                  <p class="event-time">Late Afternoon</p>
+                  <h4 class="event-name"><em>Garden</em> Party</h4>
+                </div>
+                <span class="expand-icon">+</span>
+              </div>
+              <div class="event-reveal">
+                <div class="event-reveal-inner">
+                  <p class="event-venue">The Garden</p>
+                  <p class="event-detail">Glasses raised under the trees. Canapés, laughter, golden hour light. The celebration begins.</p>
+                  <p class="event-info">5:00 PM</p>
+                </div>
+              </div>
             </div>
-            <div class="event-card">
-              <p class="event-time">Evening</p>
-              <h4 class="event-name"><em>Dinner</em></h4>
-              <p class="event-venue">Hôtel de Crillon</p>
+            <div class="event-card reveal" data-expandable>
+              <div class="event-summary">
+                <div class="event-summary-text">
+                  <p class="event-time">Evening</p>
+                  <h4 class="event-name"><em>Dinner</em></h4>
+                </div>
+                <span class="expand-icon">+</span>
+              </div>
+              <div class="event-reveal">
+                <div class="event-reveal-inner">
+                  <p class="event-venue">Hôtel de Crillon</p>
+                  <p class="event-detail">A seated dinner in the grand salon. The room, the food, the people — everything exactly as it should be.</p>
+                  <p class="event-info">8:00 PM &ensp;&middot;&ensp; Black tie</p>
+                </div>
+              </div>
             </div>
-            <div class="event-card">
-              <p class="event-time">Night</p>
-              <h4 class="event-name">The <em>Party</em></h4>
-              <p class="event-venue">Into the night</p>
+            <div class="event-card reveal" data-expandable>
+              <div class="event-summary">
+                <div class="event-summary-text">
+                  <p class="event-time">Night</p>
+                  <h4 class="event-name">The <em>Party</em></h4>
+                </div>
+                <span class="expand-icon">+</span>
+              </div>
+              <div class="event-reveal">
+                <div class="event-reveal-inner">
+                  <p class="event-detail">We dance. We don't stop. Not tonight.</p>
+                  <p class="event-info">11:00 PM &ensp;&middot;&ensp; Until the light returns</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="divider"><div class="divider-line"></div></div>
+        <div class="visual-break" style="background-image: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1920&q=80')"></div>
 
-        <!-- Sunday -->
-        <div class="day-section">
+        <!-- Sunday July 5 -->
+        <div class="day-section theme-light">
           <div class="day-header">
-            <p class="day-label">Sunday</p>
-            <h3 class="day-name">July <em>5</em></h3>
+            <p class="day-label reveal">Sunday</p>
+            <h3 class="day-name reveal">July <em>5</em></h3>
           </div>
           <div class="events">
-            <div class="event-card">
-              <p class="event-time">Morning</p>
-              <h4 class="event-name"><em>Brunch</em></h4>
-              <p class="event-venue">A gentle farewell to the Parisian weekend</p>
+            <div class="event-card reveal" data-expandable>
+              <div class="event-summary">
+                <div class="event-summary-text">
+                  <p class="event-time">Late Morning</p>
+                  <h4 class="event-name"><em>Brunch</em></h4>
+                </div>
+                <span class="expand-icon">+</span>
+              </div>
+              <div class="event-reveal">
+                <div class="event-reveal-inner">
+                  <p class="event-detail">A gentle farewell — pastries, coffee, stories from the night before. But don't say goodbye just yet. There's still Marseille.</p>
+                  <p class="event-info">11:00 AM</p>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+
+        <div class="statement theme-light">
+          <p class="statement-text reveal">
+            <em>À la semaine prochaine</em>
+          </p>
         </div>
 
       </div>
 
-      <!-- ═══════════════════════════════════ -->
-      <!-- MARSEILLE WEEKEND                   -->
-      <!-- ═══════════════════════════════════ -->
-      <div class="tab-panel marseille" id="marseille">
+      <!-- ══════════════════════════════════════ -->
+      <!--  MARSEILLE                              -->
+      <!-- ══════════════════════════════════════ -->
+      <div class="tab-panel panel-marseille" id="marseille">
 
-        <!-- Marseille Hero -->
-        <div class="weekend-hero">
-          <h2 class="weekend-hero-title"><em>Marseille</em></h2>
-          <p class="weekend-hero-subtitle">South of France &ensp;&middot;&ensp; July 10 – 15, 2026</p>
+        <div class="visual-hero" style="background-image: url('https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1920&q=80')">
+          <h2 class="visual-hero-title reveal"><em>Marseille</em></h2>
+          <p class="visual-hero-sub reveal">South of France &ensp;&middot;&ensp; July 10 – 15, 2026</p>
         </div>
 
-        <!-- Statement -->
-        <div class="statement">
-          <p class="statement-text">
+        <div class="statement theme-dark">
+          <p class="statement-text reveal">
             Sun, salt, and the <em>Mediterranean</em> —<br>
-            the celebration&nbsp;continues
+            the celebration continues
           </p>
         </div>
 
         <!-- Vendredi 10 -->
-        <div class="day-section">
+        <div class="day-section theme-dark">
           <div class="day-header">
-            <p class="day-label">Vendredi</p>
-            <h3 class="day-name">July <em>10</em></h3>
+            <p class="day-label reveal">Vendredi</p>
+            <h3 class="day-name reveal">July <em>10</em></h3>
           </div>
           <div class="day-grid">
-            <div class="day-grid-item">
-              <p class="time-label">Après-midi</p>
-              <p class="activity"><em>Pool</em></p>
+            <div class="grid-card reveal" data-expandable>
+              <div class="grid-summary">
+                <p class="grid-time">Après-midi</p>
+                <p class="grid-activity"><em>Pool</em></p>
+                <span class="expand-icon">+</span>
+              </div>
+              <div class="grid-reveal">
+                <div class="grid-reveal-inner">
+                  <p class="grid-detail">Settle in, find a lounger, do absolutely nothing. You've earned it.</p>
+                </div>
+              </div>
             </div>
-            <div class="day-grid-item">
-              <p class="time-label">Soir</p>
-              <p class="activity"><em>Bar</em></p>
+            <div class="grid-card reveal" data-expandable>
+              <div class="grid-summary">
+                <p class="grid-time">Soir</p>
+                <p class="grid-activity"><em>Bar</em></p>
+                <span class="expand-icon">+</span>
+              </div>
+              <div class="grid-reveal">
+                <div class="grid-reveal-inner">
+                  <p class="grid-detail">First drinks under the southern sky. Rosé mandatory, shoes optional.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="divider"><div class="divider-line"></div></div>
+        <div class="visual-break" style="background-image: url('https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?auto=format&fit=crop&w=1920&q=80')"></div>
 
         <!-- Samedi 11 -->
-        <div class="day-section">
+        <div class="day-section theme-dark">
           <div class="day-header">
-            <p class="day-label">Samedi</p>
-            <h3 class="day-name">July <em>11</em></h3>
+            <p class="day-label reveal">Samedi</p>
+            <h3 class="day-name reveal">July <em>11</em></h3>
           </div>
           <div class="day-grid">
-            <div class="day-grid-item">
-              <p class="time-label">Matin</p>
-              <p class="activity"><em>Petit Train</em></p>
+            <div class="grid-card reveal" data-expandable>
+              <div class="grid-summary">
+                <p class="grid-time">Matin</p>
+                <p class="grid-activity"><em>Petit Train</em></p>
+                <span class="expand-icon">+</span>
+              </div>
+              <div class="grid-reveal">
+                <div class="grid-reveal-inner">
+                  <p class="grid-detail">A scenic ride through the city — slightly touristy, entirely charming. Sunglasses on.</p>
+                </div>
+              </div>
             </div>
-            <div class="day-grid-item">
-              <p class="time-label">Midi</p>
-              <p class="activity"><em>Pool</em> Party</p>
+            <div class="grid-card reveal" data-expandable>
+              <div class="grid-summary">
+                <p class="grid-time">Midi – Après-midi</p>
+                <p class="grid-activity"><em>Pool</em> Party</p>
+                <span class="expand-icon">+</span>
+              </div>
+              <div class="grid-reveal">
+                <div class="grid-reveal-inner">
+                  <p class="grid-detail">Music, sun, swimming, repeat. The kind of afternoon that lasts forever.</p>
+                </div>
+              </div>
             </div>
-            <div class="day-grid-item">
-              <p class="time-label">Après-midi</p>
-              <p class="activity"><em>Pool</em> Party</p>
-            </div>
-            <div class="day-grid-item">
-              <p class="time-label">Soir</p>
-              <p class="activity">Party at <em>Île de Gaby</em></p>
+            <div class="grid-card reveal" data-expandable>
+              <div class="grid-summary">
+                <p class="grid-time">Soir</p>
+                <p class="grid-activity">Party at <em>Île de Gaby</em></p>
+                <span class="expand-icon">+</span>
+              </div>
+              <div class="grid-reveal">
+                <div class="grid-reveal-inner">
+                  <p class="grid-detail">An evening on the island. The sea, the stars, the sound system — all exactly where they should be.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="divider"><div class="divider-line"></div></div>
+        <div class="visual-break" style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1920&q=80')"></div>
 
         <!-- Dimanche 12 -->
-        <div class="day-section">
+        <div class="day-section theme-dark">
           <div class="day-header">
-            <p class="day-label">Dimanche</p>
-            <h3 class="day-name">July <em>12</em></h3>
+            <p class="day-label reveal">Dimanche</p>
+            <h3 class="day-name reveal">July <em>12</em></h3>
           </div>
           <div class="day-grid">
-            <div class="day-grid-item">
-              <p class="time-label">Matin</p>
-              <p class="activity"><em>Pool</em></p>
+            <div class="grid-card reveal" data-expandable>
+              <div class="grid-summary">
+                <p class="grid-time">Matin</p>
+                <p class="grid-activity"><em>Pool</em></p>
+                <span class="expand-icon">+</span>
+              </div>
+              <div class="grid-reveal">
+                <div class="grid-reveal-inner">
+                  <p class="grid-detail">Slow start. Coffee by the pool. Let yesterday settle in.</p>
+                </div>
+              </div>
             </div>
-            <div class="day-grid-item">
-              <p class="time-label">Midi</p>
-              <p class="activity">Déjeuner <em>en ville</em></p>
+            <div class="grid-card reveal" data-expandable>
+              <div class="grid-summary">
+                <p class="grid-time">Midi</p>
+                <p class="grid-activity">Déjeuner <em>en ville</em></p>
+                <span class="expand-icon">+</span>
+              </div>
+              <div class="grid-reveal">
+                <div class="grid-reveal-inner">
+                  <p class="grid-detail">Lunch in the city. Fresh fish, cold wine, warm stone. Marseille at its best.</p>
+                </div>
+              </div>
             </div>
-            <div class="day-grid-item">
-              <p class="time-label">Après-midi</p>
-              <p class="activity">Visit / <em>Beach</em></p>
+            <div class="grid-card reveal" data-expandable>
+              <div class="grid-summary">
+                <p class="grid-time">Après-midi</p>
+                <p class="grid-activity">Visit / <em>Beach</em></p>
+                <span class="expand-icon">+</span>
+              </div>
+              <div class="grid-reveal">
+                <div class="grid-reveal-inner">
+                  <p class="grid-detail">Explore the coast, find a spot, feel the salt on your skin.</p>
+                </div>
+              </div>
             </div>
-            <div class="day-grid-item">
-              <p class="time-label">Soir</p>
-              <p class="activity">Dîner at <em>L'Écaillerie</em></p>
+            <div class="grid-card reveal" data-expandable>
+              <div class="grid-summary">
+                <p class="grid-time">Soir</p>
+                <p class="grid-activity">Dîner at <em>L'Écaillerie</em></p>
+                <span class="expand-icon">+</span>
+              </div>
+              <div class="grid-reveal">
+                <div class="grid-reveal-inner">
+                  <p class="grid-detail">Oysters, sea urchins, the catch of the day. A dinner that tastes like the Mediterranean.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-
-        <div class="divider"><div class="divider-line"></div></div>
 
         <!-- Lundi 13 -->
-        <div class="day-section">
+        <div class="day-section theme-dark">
           <div class="day-header">
-            <p class="day-label">Lundi</p>
-            <h3 class="day-name">July <em>13</em></h3>
+            <p class="day-label reveal">Lundi</p>
+            <h3 class="day-name reveal">July <em>13</em></h3>
           </div>
           <div class="day-grid">
-            <div class="day-grid-item">
-              <p class="time-label">Matin</p>
-              <p class="activity"><em>Boat</em></p>
+            <div class="grid-card reveal" data-expandable>
+              <div class="grid-summary">
+                <p class="grid-time">All Day</p>
+                <p class="grid-activity"><em>Boat</em></p>
+                <span class="expand-icon">+</span>
+              </div>
+              <div class="grid-reveal">
+                <div class="grid-reveal-inner">
+                  <p class="grid-detail">We take to the water. Swim stops, coastline views, lunch on deck. The kind of day you'll remember in December.</p>
+                </div>
+              </div>
             </div>
-            <div class="day-grid-item">
-              <p class="time-label">Midi</p>
-              <p class="activity"><em>Boat</em></p>
-            </div>
-            <div class="day-grid-item">
-              <p class="time-label">Après-midi</p>
-              <p class="activity"><em>Boat</em></p>
-            </div>
-            <div class="day-grid-item">
-              <p class="time-label">Soir</p>
-              <p class="activity">Party at <em>Cabane des Amis</em></p>
+            <div class="grid-card reveal" data-expandable>
+              <div class="grid-summary">
+                <p class="grid-time">Soir</p>
+                <p class="grid-activity"><em>Cabane</em> des Amis</p>
+                <span class="expand-icon">+</span>
+              </div>
+              <div class="grid-reveal">
+                <div class="grid-reveal-inner">
+                  <p class="grid-detail">An evening at the shack among friends. Feet in the sand, stories in the air, nowhere else to be.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="divider"><div class="divider-line"></div></div>
+        <div class="visual-break" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80')"></div>
 
         <!-- Mardi 14 -->
-        <div class="day-section">
+        <div class="day-section theme-dark">
           <div class="day-header">
-            <p class="day-label">Mardi &middot; Fête Nationale</p>
-            <h3 class="day-name">July <em>14</em></h3>
+            <p class="day-label reveal">Mardi &middot; Fête Nationale</p>
+            <h3 class="day-name reveal">July <em>14</em></h3>
           </div>
           <div class="day-grid">
-            <div class="day-grid-item">
-              <p class="time-label">Soir</p>
-              <p class="activity"><em>Fireworks</em></p>
+            <div class="grid-card reveal" data-expandable>
+              <div class="grid-summary">
+                <p class="grid-time">Soir</p>
+                <p class="grid-activity"><em>Fireworks</em></p>
+                <span class="expand-icon">+</span>
+              </div>
+              <div class="grid-reveal">
+                <div class="grid-reveal-inner">
+                  <p class="grid-detail">Bastille Day. The sky lights up over Marseille, and so do we. The whole country celebrates — tonight, it feels like they're celebrating us.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="divider"><div class="divider-line"></div></div>
-
         <!-- Mercredi 15 -->
-        <div class="day-section">
+        <div class="day-section theme-dark">
           <div class="day-header">
-            <p class="day-label">Mercredi</p>
-            <h3 class="day-name">July <em>15</em></h3>
+            <p class="day-label reveal">Mercredi</p>
+            <h3 class="day-name reveal">July <em>15</em></h3>
           </div>
           <div class="day-grid">
-            <div class="day-grid-item">
-              <p class="time-label">Matin</p>
-              <p class="activity"><em>Calanques</em></p>
-            </div>
-            <div class="day-grid-item">
-              <p class="time-label">Midi</p>
-              <p class="activity"><em>Calanques</em></p>
-            </div>
-            <div class="day-grid-item">
-              <p class="time-label">Après-midi</p>
-              <p class="activity"><em>Calanques</em></p>
+            <div class="grid-card reveal" data-expandable>
+              <div class="grid-summary">
+                <p class="grid-time">All Day</p>
+                <p class="grid-activity"><em>Calanques</em></p>
+                <span class="expand-icon">+</span>
+              </div>
+              <div class="grid-reveal">
+                <div class="grid-reveal-inner">
+                  <p class="grid-detail">The grand finale. Turquoise coves, white cliffs, a hike, a swim, a final toast. The most beautiful way to end two unforgettable weeks.</p>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+
+        <div class="statement theme-dark">
+          <p class="statement-text reveal">
+            <em>See you in the south</em>
+          </p>
         </div>
 
       </div>
