@@ -165,12 +165,13 @@ a, button { cursor: none; }
 
 .hero-scroll {
   position: absolute;
-  bottom: 2.5rem; left: 50%;
-  transform: translateX(-50%);
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
   display: flex; flex-direction: column;
   align-items: center; gap: 0.75rem;
   opacity: 0;
-  animation: fadeUp 1s var(--ease) 1.4s forwards;
+  animation: fadeUpCentered 1s var(--ease) 1.4s forwards;
 }
 .hero-scroll span {
   font-family: var(--sans);
@@ -439,6 +440,7 @@ a, button { cursor: none; }
 
 /* ─── Keyframes ─── */
 @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeUpCentered { to { opacity: 1; transform: translateX(-50%) translateY(0); } }
 @keyframes scrollPulse { 0% { top: -100%; } 50% { top: 100%; } 100% { top: 100%; } }
 @keyframes panelIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 
