@@ -1,16 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ─── Dual Cursor ───
+  // ─── Cursor (instant dot, slight ring trail) ───
   const dot  = document.querySelector('.cursor-dot');
   const ring = document.querySelector('.cursor-ring');
   let mouseX = 0, mouseY = 0;
-  let dotX = 0, dotY = 0, ringX = 0, ringY = 0;
+  let ringX = 0, ringY = 0;
 
   document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
     dot.classList.add('visible');
     ring.classList.add('visible');
+    dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
   });
 
   document.addEventListener('mouseleave', () => {
@@ -19,27 +20,23 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   (function tick() {
-    dotX += (mouseX - dotX) * 0.2;
-    dotY += (mouseY - dotY) * 0.2;
-    ringX += (mouseX - ringX) * 0.08;
-    ringY += (mouseY - ringY) * 0.08;
-    dot.style.transform  = `translate(${dotX - dot.offsetWidth / 2}px, ${dotY - dot.offsetWidth / 2}px)`;
-    ring.style.transform = `translate(${ringX - ring.offsetWidth / 2}px, ${ringY - ring.offsetWidth / 2}px)`;
+    ringX += (mouseX - ringX) * 0.18;
+    ringY += (mouseY - ringY) * 0.18;
+    ring.style.transform = `translate(${ringX}px, ${ringY}px)`;
     requestAnimationFrame(tick);
   })();
 
-  document.querySelectorAll('a, button, .mosaic-img, .visual-hero, .hero-city')
+  document.querySelectorAll('a, button, .mosaic-img, .visual-hero, .hero-city, .timeline-step')
     .forEach((el) => {
       el.addEventListener('mouseenter', () => { dot.classList.add('hovering'); ring.classList.add('hovering'); });
       el.addEventListener('mouseleave', () => { dot.classList.remove('hovering'); ring.classList.remove('hovering'); });
     });
 
-  // ─── Hero Side Navigation ───
+  // ─── Hero Navigation ───
   document.querySelectorAll('[data-hero-tab]').forEach((side) => {
     side.addEventListener('click', (e) => {
       e.preventDefault();
-      const target = side.dataset.heroTab;
-      switchTab(target);
+      switchTab(side.dataset.heroTab);
     });
   });
 
@@ -68,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach((e) => {
       if (e.isIntersecting) {
         const el = e.target;
-        const parent = el.closest('.mosaic');
+        const parent = el.closest('.mosaic, .timeline');
         if (parent) {
           const siblings = [...parent.querySelectorAll('.reveal')];
           el.style.transitionDelay = `${siblings.indexOf(el) * 0.08}s`;
