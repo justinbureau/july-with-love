@@ -367,6 +367,10 @@ a, button { cursor: none; }
 .mosaic-img:hover img {
   transform: scale(1.03);
 }
+.mosaic-img img.blend {
+  mix-blend-mode: multiply;
+  object-fit: contain;
+}
 
 /* ─── Mosaic Card Cell ─── */
 .mosaic-card {
