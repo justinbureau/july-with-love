@@ -3,10 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // ─── Dual Cursor ───
   const dot  = document.querySelector('.cursor-dot');
   const ring = document.querySelector('.cursor-ring');
-
   let mouseX = 0, mouseY = 0;
-  let dotX = 0, dotY = 0;
-  let ringX = 0, ringY = 0;
+  let dotX = 0, dotY = 0, ringX = 0, ringY = 0;
 
   document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
@@ -20,107 +18,74 @@ document.addEventListener('DOMContentLoaded', () => {
     ring.classList.remove('visible');
   });
 
-  (function animate() {
+  (function tick() {
     dotX += (mouseX - dotX) * 0.2;
     dotY += (mouseY - dotY) * 0.2;
     ringX += (mouseX - ringX) * 0.08;
     ringY += (mouseY - ringY) * 0.08;
-
-    const dotW = dot.offsetWidth;
-    const ringW = ring.offsetWidth;
-
-    dot.style.transform  = `translate(${dotX - dotW / 2}px, ${dotY - dotW / 2}px)`;
-    ring.style.transform = `translate(${ringX - ringW / 2}px, ${ringY - ringW / 2}px)`;
-
-    requestAnimationFrame(animate);
+    dot.style.transform  = `translate(${dotX - dot.offsetWidth / 2}px, ${dotY - dot.offsetWidth / 2}px)`;
+    ring.style.transform = `translate(${ringX - ring.offsetWidth / 2}px, ${ringY - ring.offsetWidth / 2}px)`;
+    requestAnimationFrame(tick);
   })();
 
-  const hoverTargets = document.querySelectorAll(
-    'a, button, [data-expandable], .visual-break, .visual-hero'
-  );
-  hoverTargets.forEach((el) => {
-    el.addEventListener('mouseenter', () => {
-      dot.classList.add('hovering');
-      ring.classList.add('hovering');
+  document.querySelectorAll('a, button, [data-expandable], .mosaic-img, .visual-hero')
+    .forEach((el) => {
+      el.addEventListener('mouseenter', () => { dot.classList.add('hovering'); ring.classList.add('hovering'); });
+      el.addEventListener('mouseleave', () => { dot.classList.remove('hovering'); ring.classList.remove('hovering'); });
     });
-    el.addEventListener('mouseleave', () => {
-      dot.classList.remove('hovering');
-      ring.classList.remove('hovering');
-    });
-  });
 
   // ─── Expandable Cards ───
   document.querySelectorAll('[data-expandable]').forEach((card) => {
     card.addEventListener('click', () => {
       const wasExpanded = card.classList.contains('expanded');
-
-      card.closest('.events, .day-grid')
+      card.closest('.mosaic')
         ?.querySelectorAll('[data-expandable].expanded')
         .forEach((c) => c.classList.remove('expanded'));
-
-      if (!wasExpanded) {
-        card.classList.add('expanded');
-      }
+      if (!wasExpanded) card.classList.add('expanded');
     });
   });
 
-  // ─── Tab Switching ───
-  const tabNav    = document.getElementById('tabNav');
-  const tabBtns   = document.querySelectorAll('.tab-btn');
-  const tabPanels = document.querySelectorAll('.tab-panel');
+  // ─── Tabs ───
+  const tabNav  = document.getElementById('tabNav');
+  const btns    = document.querySelectorAll('.tab-btn');
+  const panels  = document.querySelectorAll('.tab-panel');
 
-  tabBtns.forEach((btn) => {
+  btns.forEach((btn) => {
     btn.addEventListener('click', () => {
       const target = btn.dataset.tab;
-
-      tabBtns.forEach((b) => b.classList.remove('active'));
+      btns.forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
-
-      tabPanels.forEach((panel) => {
-        panel.classList.remove('active');
-        if (panel.id === target) {
-          panel.classList.add('active');
-          resetReveals(panel);
-        }
+      panels.forEach((p) => {
+        p.classList.remove('active');
+        if (p.id === target) { p.classList.add('active'); resetReveals(p); }
       });
-
       tabNav.classList.toggle('theme-dark', target === 'marseille');
-
       document.querySelector('.weekends').scrollIntoView({ behavior: 'smooth' });
     });
   });
 
   // ─── Scroll Reveal ───
-  const revealOpts = { threshold: 0.12, rootMargin: '0px 0px -30px 0px' };
-
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        el.classList.add('visible');
-
-        const parent = el.closest('.events, .day-grid');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        const el = e.target;
+        const parent = el.closest('.mosaic');
         if (parent) {
           const siblings = [...parent.querySelectorAll('.reveal')];
-          const idx = siblings.indexOf(el);
-          el.style.transitionDelay = `${idx * 0.08}s`;
+          el.style.transitionDelay = `${siblings.indexOf(el) * 0.08}s`;
         }
+        el.classList.add('visible');
       }
     });
-  }, revealOpts);
+  }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
 
-  document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+  document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
 
   function resetReveals(panel) {
     const els = panel.querySelectorAll('.reveal');
-    els.forEach((el) => {
-      el.classList.remove('visible');
-      el.style.transitionDelay = '0s';
-    });
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        els.forEach((el) => revealObserver.observe(el));
-      });
-    });
+    els.forEach((el) => { el.classList.remove('visible'); el.style.transitionDelay = '0s'; });
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      els.forEach((el) => obs.observe(el));
+    }));
   }
 });
