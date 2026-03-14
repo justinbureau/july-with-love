@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(tick);
   })();
 
-  document.querySelectorAll('a, button, .mosaic-img, .visual-hero, .hero-side')
+  document.querySelectorAll('a, button, .mosaic-img, .visual-hero, .hero-city')
     .forEach((el) => {
       el.addEventListener('mouseenter', () => { dot.classList.add('hovering'); ring.classList.add('hovering'); });
       el.addEventListener('mouseleave', () => { dot.classList.remove('hovering'); ring.classList.remove('hovering'); });
