@@ -160,17 +160,15 @@ a, button { cursor: none; }
 
 .hero-city:hover { color: var(--ink); }
 
-.hero-city-illo {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
-  mix-blend-mode: multiply;
-  opacity: 0.5;
+.hero-city-icon {
+  width: 22px;
+  height: 22px;
+  opacity: 0.35;
   transition: opacity 0.3s ease, transform 0.4s var(--ease);
 }
 
-.hero-city:hover .hero-city-illo {
-  opacity: 0.8;
+.hero-city:hover .hero-city-icon {
+  opacity: 0.7;
   transform: scale(1.1);
 }
 
