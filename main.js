@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(tick);
   })();
 
-  document.querySelectorAll('a, button, [data-expandable], .mosaic-img, .visual-hero')
+  document.querySelectorAll('a, button, [data-expandable], .mosaic-img, .visual-hero, .hero-side')
     .forEach((el) => {
       el.addEventListener('mouseenter', () => { dot.classList.add('hovering'); ring.classList.add('hovering'); });
       el.addEventListener('mouseleave', () => { dot.classList.remove('hovering'); ring.classList.remove('hovering'); });
@@ -45,23 +45,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ─── Hero Side Navigation ───
+  document.querySelectorAll('[data-hero-tab]').forEach((side) => {
+    side.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = side.dataset.heroTab;
+      switchTab(target);
+    });
+  });
+
   // ─── Tabs ───
   const tabNav  = document.getElementById('tabNav');
   const btns    = document.querySelectorAll('.tab-btn');
   const panels  = document.querySelectorAll('.tab-panel');
 
-  btns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const target = btn.dataset.tab;
-      btns.forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
-      panels.forEach((p) => {
-        p.classList.remove('active');
-        if (p.id === target) { p.classList.add('active'); resetReveals(p); }
-      });
-      tabNav.classList.toggle('theme-dark', target === 'marseille');
-      document.querySelector('.weekends').scrollIntoView({ behavior: 'smooth' });
+  function switchTab(target) {
+    btns.forEach((b) => b.classList.remove('active'));
+    document.querySelector(`.tab-btn[data-tab="${target}"]`).classList.add('active');
+    panels.forEach((p) => {
+      p.classList.remove('active');
+      if (p.id === target) { p.classList.add('active'); resetReveals(p); }
     });
+    tabNav.classList.toggle('theme-dark', target === 'marseille');
+    document.querySelector('.weekends').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  btns.forEach((btn) => {
+    btn.addEventListener('click', () => switchTab(btn.dataset.tab));
   });
 
   // ─── Scroll Reveal ───
