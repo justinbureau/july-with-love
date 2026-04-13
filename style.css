@@ -563,7 +563,7 @@ body::after {
 /* ─── Location Header ─── */
 .location-header {
   max-width: 700px;
-  margin: 3rem auto 1rem;
+  margin: 3rem auto 0.25rem;
   padding-left: 4rem;
   font-family: var(--serif);
   font-weight: 400;
