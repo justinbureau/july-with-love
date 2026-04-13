@@ -34,6 +34,55 @@ document.addEventListener('DOMContentLoaded', () => {
       el.addEventListener('mouseleave', () => { dot.classList.remove('hovering'); ring.classList.remove('hovering'); });
     });
 
+  // ─── Tab switching ───
+  const tabNav = document.getElementById('tabNav');
+  const btns = document.querySelectorAll('[data-tab]');
+  const panels = document.querySelectorAll('.tab-panel');
+
+  let switching = false;
+  function switchTab(target) {
+    if (switching) return;
+    const current = document.querySelector('.tab-panel.active');
+    if (current && current.id === target) return;
+
+    switching = true;
+    btns.forEach((b) => b.classList.remove('active'));
+    document.querySelectorAll(`[data-tab="${target}"]`).forEach((b) => b.classList.add('active'));
+
+    if (current) {
+      current.classList.add('exiting');
+      current.classList.remove('active');
+      setTimeout(() => {
+        current.classList.remove('exiting');
+        const next = document.getElementById(target);
+        next.classList.add('active');
+        resetReveals(next);
+        if (tabNav) tabNav.scrollIntoView({ behavior: 'smooth' });
+        switching = false;
+      }, 350);
+    } else {
+      const next = document.getElementById(target);
+      next.classList.add('active');
+      resetReveals(next);
+      switching = false;
+    }
+  }
+
+  btns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      switchTab(btn.dataset.tab);
+    });
+  });
+
+  function resetReveals(panel) {
+    const els = panel.querySelectorAll('.reveal');
+    els.forEach((el) => { el.classList.remove('visible'); el.style.transitionDelay = '0s'; });
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      els.forEach((el) => obs.observe(el));
+    }));
+  }
+
   // ─── Hero scroll-to-content links ───
   document.querySelectorAll('[data-scroll]').forEach((link) => {
     link.addEventListener('click', (e) => {
@@ -117,6 +166,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('click', () => popup.classList.remove('active'));
   document.addEventListener('scroll', () => popup.classList.remove('active'), { passive: true });
+
+  // ─── Moodboard modal ───
+  const modal = document.createElement('div');
+  modal.className = 'modal-overlay';
+  const basePath = document.querySelector('link[rel="stylesheet"]').href.replace(/style\.css$/, '');
+  modal.innerHTML = `
+    <div class="modal-content">
+      <button class="modal-close">Fermer</button>
+      <a class="modal-download" href="${basePath}assets/moodboard.pdf" download="moodboard">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span>Télécharger</span>
+      </a>
+      <img src="${basePath}assets/moodboard.png" alt="Moodboard">
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  document.querySelectorAll('.moodboard-link').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.classList.add('active');
+    });
+  });
+
+  modal.querySelector('.modal-close').addEventListener('click', () => {
+    modal.classList.remove('active');
+  });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.classList.remove('active');
+  });
 
   // ─── Scroll Reveal ───
   const obs = new IntersectionObserver((entries) => {

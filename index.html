@@ -22,12 +22,12 @@
       <p class="hero-overline">Emma &amp; Justin &ensp;&middot;&ensp; 2026</p>
       <h1 class="hero-title"><em>July</em> with Love</h1>
       <div class="hero-cities">
-        <a class="hero-city" data-scroll="paris-content">
+        <a class="hero-city" data-tab="paris">
           <svg class="hero-city-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l-5 20M12 2l5 20M8.5 11h7M7.5 16h9M10 6.5h4"/></svg>
           <span>Paris</span>
         </a>
         <span class="hero-cities-dot">&middot;</span>
-        <a class="hero-city" href="marseille/">
+        <a class="hero-city" data-tab="marseille">
           <span>Marseille</span>
           <svg class="hero-city-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14V4l7 10H12"/><path d="M12 7l-4 7h4"/><path d="M3 19c2-1 4-1 6 0s4 1 6 0 4-1 6 0"/></svg>
         </a>
@@ -41,19 +41,18 @@
 
   <!-- ─── Nav ─── -->
   <nav class="tab-nav" id="tabNav">
-    <a class="tab-btn active" href="#paris-content" data-scroll="paris-content">Paris &ensp;&middot;&ensp; 4 juillet</a>
-    <a class="tab-btn" href="marseille/">Marseille &ensp;&middot;&ensp; 10 – 15 juillet</a>
+    <button class="tab-btn active" data-tab="paris">Paris &ensp;&middot;&ensp; 4 juillet</button>
+    <button class="tab-btn" data-tab="marseille">Marseille &ensp;&middot;&ensp; 10 – 15 juillet</button>
   </nav>
 
-  <!-- ─── Paris ─── -->
-  <section id="paris-content">
+  <!-- ═══ PARIS ═══ -->
+  <div class="tab-panel active" id="paris">
 
     <div class="visual-hero" style="background-image: url('assets/paris/insp_hoteldecrillonparis_web_photos-property_0000s_0017_h_tel-de-crillon-facade.jpg')">
       <h2 class="visual-hero-title reveal"><em>Paris</em></h2>
       <p class="visual-hero-sub reveal">Samedi 4 juillet 2026</p>
     </div>
 
-    <!-- Samedi 4 juillet -->
     <div class="day-section theme-light">
       <div class="day-header">
         <p class="day-label reveal">Samedi</p>
@@ -101,7 +100,7 @@
     <div class="dress-code theme-light">
       <p class="dress-code-label reveal">Dress code</p>
       <p class="dress-code-text reveal">Cocktail dress &amp; Black Tie optional</p>
-      <a href="assets/moodboard.pdf" target="_blank" class="moodboard-link reveal">Moodboard</a>
+      <a href="#" class="moodboard-link reveal">Moodboard</a>
     </div>
 
     <div class="crillon-illustration reveal">
@@ -113,7 +112,160 @@
       <p class="statement-text reveal"><em>Can't wait to see you all!</em></p>
     </div>
 
-  </section>
+  </div>
+
+  <!-- ═══ MARSEILLE ═══ -->
+  <div class="tab-panel" id="marseille">
+
+    <div class="visual-hero" style="background-image: url('assets/marseille/vieux-port.jpg')">
+      <h2 class="visual-hero-title reveal"><em>Marseille</em></h2>
+      <p class="visual-hero-sub reveal">10 – 15 juillet 2026</p>
+    </div>
+
+    <!-- Vendredi 10 -->
+    <div class="day-section theme-light">
+      <div class="day-header">
+        <p class="day-label reveal">Vendredi</p>
+        <h3 class="day-name reveal">10 <em>juillet</em></h3>
+      </div>
+      <div class="mosaic">
+        <div class="mosaic-cell mosaic-card reveal">
+          <p class="event-time">Après-midi</p>
+          <h4 class="event-name"><em>Arrivée</em></h4>
+        </div>
+        <div class="mosaic-cell mosaic-card reveal">
+          <p class="event-time">20h00</p>
+          <h4 class="event-name"><em>Welcome dîner à L'Écaillerie</em></h4>
+          <p class="event-venue address-link" data-address="26 Rue d'Endoume, 13007 Marseille">26 Rue d'Endoume, 13007</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Samedi 11 -->
+    <div class="day-section theme-light">
+      <div class="day-header">
+        <p class="day-label reveal">Samedi</p>
+        <h3 class="day-name reveal">11 <em>juillet</em></h3>
+      </div>
+      <div class="mosaic">
+        <div class="mosaic-cell mosaic-img mosaic-tall zoomed reveal">
+          <img src="assets/marseille/boat.jpg" alt="Journée bateau">
+        </div>
+        <div class="mosaic-cell mosaic-card reveal">
+          <p class="event-time">9h45 – 17h00</p>
+          <h4 class="event-name"><em>Journée bateau</em></h4>
+          <p class="event-venue address-link" data-address="Quai d'honneur de la mairie, Vieux-Port de Marseille">Quai d'honneur de la mairie, Vieux-Port de Marseille</p>
+        </div>
+        <div class="mosaic-cell mosaic-card reveal">
+          <p class="event-time">19h30</p>
+          <h4 class="event-name"><em>Apéro Café de l'Abbaye</em></h4>
+          <p class="event-venue address-link" data-address="3 rue d'Endoume, 13007 Marseille">3 rue d'Endoume, 13007</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dimanche 12 -->
+    <div class="day-section theme-light">
+      <div class="day-header">
+        <p class="day-label reveal">Dimanche</p>
+        <h3 class="day-name reveal">12 <em>juillet</em></h3>
+      </div>
+      <div class="mosaic">
+        <div class="mosaic-cell mosaic-card reveal">
+          <p class="event-time">11h00</p>
+          <h4 class="event-name"><em>Petit Train</em></h4>
+          <p class="event-venue address-link" data-address="174 quai du port, Marseille">174 quai du port</p>
+        </div>
+        <div class="mosaic-cell mosaic-card reveal">
+          <p class="event-time">Après-midi</p>
+          <h4 class="event-name"><em>Pool Party Villa Bompard</em></h4>
+          <p class="event-venue address-link" data-address="147 Boulevard Bompard, 13007 Marseille">147 Boulevard Bompard, 13007</p>
+        </div>
+        <div class="mosaic-cell mosaic-img reveal">
+          <img src="assets/marseille/cabane-des-amis.jpg" alt="Cabane des Amis" style="object-position: center 20%;">
+        </div>
+        <div class="mosaic-cell mosaic-card reveal">
+          <p class="event-time">19h00</p>
+          <h4 class="event-name"><em>Soirée à la Cabane des Amis</em></h4>
+          <p class="event-info">Thème : Sunset Glitter</p>
+          <p class="event-venue address-link" data-address="Plage de l'Huveaune, 7 Av. Pierre Mendès France, 13008 Marseille">Plage de l'Huveaune, 7 Av. Pierre Mendès France, 13008</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lundi 13 -->
+    <div class="day-section theme-light">
+      <div class="day-header">
+        <p class="day-label reveal">Lundi</p>
+        <h3 class="day-name reveal">13 <em>juillet</em></h3>
+      </div>
+      <div class="mosaic">
+        <div class="mosaic-cell mosaic-card reveal">
+          <p class="event-time">13h00</p>
+          <h4 class="event-name"><em>Bistro Plage</em></h4>
+          <p class="event-venue address-link" data-address="60 Cor Président John Fitzgerald Kennedy, 13007 Marseille">60 Cor Président John Fitzgerald Kennedy, 13007</p>
+        </div>
+        <div class="mosaic-cell mosaic-img reveal">
+          <img src="assets/marseille/bistro-plage.png" alt="Bistro Plage" style="object-position: center 42%;">
+        </div>
+        <div class="mosaic-cell mosaic-img reveal">
+          <img src="assets/marseille/ile-de-gaby.jpg" alt="Île de Gaby" style="object-position: center 80%;">
+        </div>
+        <div class="mosaic-cell mosaic-card reveal">
+          <p class="event-time">18h00</p>
+          <h4 class="event-name"><em>Dîner tapas Île de Gaby</em></h4>
+          <p class="event-venue address-link" data-address="Quai de l'Anse de Maldormé, 13007 Marseille">Quai de l'Anse de Maldormé, 13007</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mardi 14 -->
+    <div class="day-section theme-light">
+      <div class="day-header">
+        <p class="day-label reveal">Mardi &middot; Fête Nationale</p>
+        <h3 class="day-name reveal">14 <em>juillet</em></h3>
+      </div>
+      <div class="mosaic">
+        <div class="mosaic-cell mosaic-card reveal">
+          <p class="event-time">Journée</p>
+          <h4 class="event-name"><em>Pique-nique &amp; baignade</em></h4>
+          <p class="event-venue">Petit Nice ou Plage des Prophètes</p>
+        </div>
+        <div class="mosaic-cell mosaic-card reveal">
+          <p class="event-time">18h00</p>
+          <h4 class="event-name"><em>Apéro closing Villa Bompard</em></h4>
+          <p class="event-venue address-link" data-address="147 Boulevard Bompard, 13007 Marseille">147 Boulevard Bompard, 13007</p>
+        </div>
+        <div class="mosaic-cell mosaic-card reveal">
+          <p class="event-time">22h00</p>
+          <h4 class="event-name"><em>Feux d'artifice</em></h4>
+          <p class="event-venue">Vieux-Port ou autre point de vue</p>
+        </div>
+        <div class="mosaic-cell mosaic-img reveal">
+          <img src="assets/marseille/fireworks.jpg" alt="Feux d'artifice" style="object-position: center 15%;">
+        </div>
+      </div>
+    </div>
+
+    <!-- Mercredi 15 -->
+    <div class="day-section theme-light">
+      <div class="day-header">
+        <p class="day-label reveal">Mercredi</p>
+        <h3 class="day-name reveal">15 <em>juillet</em></h3>
+      </div>
+      <div class="mosaic">
+        <div class="mosaic-cell mosaic-card mosaic-wide reveal">
+          <p class="event-time">Matin</p>
+          <h4 class="event-name"><em>Au revoir</em></h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="statement theme-light">
+      <p class="statement-text reveal"><em>Can't wait to see you all!</em></p>
+    </div>
+
+  </div>
 
   <script src="main.js"></script>
 </body>
